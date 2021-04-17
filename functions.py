@@ -22,3 +22,17 @@ def trigonometric(x):
 # q(x) = f(h(x))
 def comp_lin_poly(x):
     return linear(polynomial(x))
+
+# silnia
+
+def factorial(x):
+    result = x
+    if x > 1:
+        for i in range (1, x):
+            result += x - i
+        return result
+    elif x == 1 or x ==0:
+        return 1
+    else:
+        print("Z tej liczby nie da sie obliczyc silni.")
+        return None

@@ -1,6 +1,7 @@
 import functions as f
 import numpy as np
 from horner import horner
+from functions import *
 from points import point_generator
 
 if __name__ == '__main__':
