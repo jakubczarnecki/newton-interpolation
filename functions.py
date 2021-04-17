@@ -19,6 +19,6 @@ def polynomial(x):
 def trigonometric(x):
     return np.sin(x) + 1
 
-# q(x) = f(g(x))
+# q(x) = f(h(x))
 def comp_lin_poly(x):
     return linear(polynomial(x))
