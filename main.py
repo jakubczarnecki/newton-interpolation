@@ -3,6 +3,7 @@ from newton import *
 import numpy as np
 import matplotlib.pyplot as plt
 from horner import horner
+from functions import *
 from points import point_generator
 
 if __name__ == '__main__':
