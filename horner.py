@@ -1,8 +1,6 @@
-# wartosc argumentu, tablica wspolczynnikow, dlugosc tablicy
-
-def horner(x, wsp, n):
+def horner(x, wsp):
     result = wsp[0]
 
-    for i in n:
-        result = result * x + wsp[i]
+    for i in wsp:
+        result = result * x + i
         return result
