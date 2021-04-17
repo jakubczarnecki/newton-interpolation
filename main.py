@@ -1,5 +1,7 @@
-import functions as f
+from functions import *
+from newton import *
 import numpy as np
+import matplotlib.pyplot as plt
 from horner import horner
 from points import point_generator
 
@@ -11,13 +13,12 @@ if __name__ == '__main__':
     # x = np.loadtxt('data.txt', dtype='double')
     # number = x.shape[0]
 
-    print('Podaj funkcję: ')
-    print('1) f(x) = 3x - 1')
-    print('2) g(x) = |x|')
-    print('3) h(x) = x^3 - 7x - 1')
-    print('4) p(x) = sin(x) + 1')
-    print('5) q(x) = f(h(x))')
-    choice = input()
+    print("Wybierz funkcję:\n");
+    print("1 - f(x) = 3 * x - 1\n");
+    print("2 - g(x) = |x|\n");
+    print("3 - h(x) = x * x * x - 7 * x - 1\n");
+    print("4 - p(x) = sin(x) + 1\n");
+    print("5 - f(g(x))\n");
 
     left = input('Podaj dolna granice interpolacji (float64):')
     right = input('Podaj gorna granice interpolacji (float64):')
@@ -28,5 +29,36 @@ if __name__ == '__main__':
     right = float(right)
     number = int(number)
 
-    print(point_generator(left, right, number))
+    X = point_generator(left, right, number)
+    Y = trigonometric(X)
+    # X = [-1, 0, 1, 2, 3, 4, 5]
+    # Y = [-20, -12, 1, 15, 4, 21, 41]
+    print(X)
+    print(Y)
+
+    A = differences(X, Y)
+    print(A)
+
+    xs = np.linspace(np.min(X), np.max(X), 1000, endpoint=True)
+    ys = []
+    for x in xs:
+        ys.append(newton(X, Y, x))
+
+    xs2 = np.linspace(np.min(X), np.max(X), 1000, endpoint=True)
+    ys2 = []
+    for x in xs2:
+        ys2.append(trigonometric(x))
+
+    plt.title("Newton ez")
+    plt.plot(X, Y, 's', label="original values")  # blue dot indicates the original value
+    plt.plot(xs, ys, 'r', label='interpolation values')  # Interpolation curve
+    plt.plot(xs2, ys2, 'y', label='real function values')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.legend(loc=4)  #
+
+    plt.show()
+
+
+
 

@@ -6,10 +6,7 @@ def linear(x):
 
 # g(x)
 def absolute(x):
-    if x >= 0:
-        return x
-    else:
-        return -x
+    return abs(x)
 
 # h(x)
 def polynomial(x):
@@ -22,3 +19,9 @@ def trigonometric(x):
 # q(x) = f(h(x))
 def comp_lin_poly(x):
     return linear(polynomial(x))
+
+
+def merge(arr1, arr2):
+    return np.array([arr1, arr2])
+
+
