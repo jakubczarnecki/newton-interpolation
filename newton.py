@@ -20,10 +20,10 @@ def newton(x, y, n):
     for i in range(0, len(x)):
         temp[i, 0] = y[i]
     temp_sum = 1.0
+
     for i in range(1, len(x)):
-        # x polynomial
         temp_sum = temp_sum * (n - x[i - 1])
-        #
+
         for j in range(i, len(x)):
             temp[j, i] = (temp[j, i - 1] - temp[j - 1, i - 1]) / (x[j] - x[j - i])
         sum += temp_sum * temp[i, i]
