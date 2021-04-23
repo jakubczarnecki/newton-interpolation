@@ -14,12 +14,13 @@ if __name__ == '__main__':
     # x = np.loadtxt('data.txt', dtype='double')
     # number = x.shape[0]
 
-    print("Wybierz funkcję:\n");
     print("1 - f(x) = 3 * x - 1\n");
     print("2 - g(x) = |x|\n");
     print("3 - h(x) = x * x * x - 7 * x - 1\n");
     print("4 - p(x) = sin(x) + 1\n");
     print("5 - f(g(x))\n");
+
+    func = input('Wybierz funkcję:\n')
 
     left = input('Podaj dolna granice interpolacji (float64):')
     right = input('Podaj gorna granice interpolacji (float64):')

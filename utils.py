@@ -7,5 +7,5 @@ def polynomialFactors(n):
 
      return tab
 
-def Factors(a):
-     return 0
+def merge(arr1, arr2):
+    return np.array([arr1, arr2])
