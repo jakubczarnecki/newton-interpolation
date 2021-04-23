@@ -20,9 +20,9 @@ def polynomial(x, tab):
 def trigonometric(x, a, b):
     return a * np.sin(x) + b
 
-# q(x) = f(h(x))
-def comp_lin_poly(x, a, b):
-    return a * linear(polynomial(x)) + b
+# # q(x) = f(h(x))
+# def comp_lin_poly(x, a, b):
+#     return a * linear(polynomial(x)) + b
 
 
 
