@@ -1,10 +1,5 @@
 import numpy as np
-
-
-# f(x)
-def linear(x, a, b):
-    return a * x + b
-
+from utils import *
 
 # g(x)
 def absolute(x, a, b):
@@ -27,10 +22,29 @@ def polynomial(x, tab):
 def trigonometric(x, a, b):
     return a * np.sin(x) + b
 
-# # q(x) = f(h(x))
-# def comp_lin_poly(x, a, b):
-#     return a * linear(polynomial(x)) + b
+def choosePolynomialFactors():
+    level = input("Podaj stopien wielomianu: ")
+    factors = polynomialFactors(int(level))
+    print("Tablica wspolczynnikow wielomianu: \n" + str(factors) + "\n")
+    return factors
+
+def chooseFactors():
+    a = input('Podaj a: ')
+    b = input('Podaj b: ')
+    a = np.double(a)
+    b = np.double(b)
+    return a, b
 
 
+# def chooseComposition(func, x):
+#     if func == "1":
+#         func = choosePolynomial(x)
+#     elif func == "2":
+#         func = chooseLinear(x)
+#     elif func == "3":
+#         func = chooseAbsolute(x)
+#     elif func == "4":
+#         func = chooseTrigonometric(x)
+#     return func
 
 
