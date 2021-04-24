@@ -104,12 +104,13 @@ if __name__ == '__main__':
 
 
     #Rysowanie
-    plt.plot(X, Y, 's', label = "węzły")  # blue dot indicates the original value
-    plt.plot(xs, ys, 'r', label = 'interpolation values')  # Interpolation curve
-    plt.plot(xs2, ys2, 'y', label = 'real function values')
+    plt.plot(X, Y, 's', label = "węzły interpolacyjne")  # blue dot indicates the original value
+    plt.plot(xs, ys, 'r', label = 'wielomian interpolacyjny')  # Interpolation curve
+    plt.plot(xs2, ys2, 'y', label = 'wielomian interpolowany')
     plt.xlabel('x')
     plt.ylabel('y')
-    plt.legend(loc = 4)
+    plt.legend(title='Legenda', loc='best', fontsize='xx-small')
+    plt.grid(b = True, axis = 'both')
     plt.show()
 
 
