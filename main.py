@@ -23,17 +23,31 @@ if __name__ == '__main__':
     print("5 - złożenie dwóch funkcji\n")
     func = input()
 
-    left = input('Podaj dolna granice interpolacji (float64):')
-    left = np.double(left)
-    right = input('Podaj gorna granice interpolacji (float64):')
-    right = np.double(right)
-    number = input('Podaj liczbe wezlow (int):')
+    print('Chcesz podac wezly (p) czy je wylosowac (l)?\n')
+    isRandom = input()
 
-    left = np.double(left)
-    right = np.double(right)
-    number = int(number)
+    if isRandom == 'l':
 
-    X = np.array([-2, 0, 1, 2, 3, 4, 6, 8], dtype='double') #to np. z pliku bedzie wczytane
+        left = input('Podaj dolna granice interpolacji (float64):')
+        left = np.double(left)
+        right = input('Podaj gorna granice interpolacji (float64):')
+        right = np.double(right)
+        number = input('Podaj liczbe wezlow (int):')
+
+        left = np.double(left)
+        right = np.double(right)
+        number = int(number)
+
+        X = point_generator(left, right, number)
+
+    else:
+        number = input('Podaj liczbe wezlow (int):')
+        X = np.empty(int(number), dtype = 'double')
+        for i in range(number):
+            X[i] = input('Węzeł ' + str(i) + ' (double):')
+
+    # X = np.array([-2, 0, 1, 2, 3, 4, 6, 8], dtype='double') #to np. z pliku bedzie wczytane
+    # X = np.array([-5, -2, 0, 3.5, 7]) # imo tam na gorze za rowne odstepy byly XD
 
     if func == "1":
         level = input("Podaj stopien wielomianu: ")
@@ -53,14 +67,14 @@ if __name__ == '__main__':
         b = input('Podaj b: ')
         a = np.double(a)
         b = np.double(b)
-        Y = linear(X, a, b)
+        Y = absolute(X, a, b)
 
     elif func == "4":
         a = input('Podaj a: ')
         b = input('Podaj b: ')
         a = np.double(a)
         b = np.double(b)
-        Y = linear(X, a, b)
+        Y = trigonometric(X, a, b)
 
     # Nasza interpolacja
     xs = np.linspace(left, right, 1000, endpoint = True)
@@ -79,14 +93,14 @@ if __name__ == '__main__':
     xs2 = np.linspace(left, right, 1000, endpoint = True)
     ys2 = []
     for x in xs2:
-        # if (func == "1"):
-            # tutaj horner chyba
+        if (func == "1"):
+            ys2.append(horner(x, factors))
         if (func == "2"):
             ys2.append(linear(x, a, b))
         if (func == "3"):
             ys2.append(absolute(x, a, b))
         if (func == "4"):
-            ys2.append(trigonometric(X, a, b))
+            ys2.append(trigonometric(x, a, b))
 
 
     #Rysowanie
